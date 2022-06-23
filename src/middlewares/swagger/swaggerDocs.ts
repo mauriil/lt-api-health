@@ -1,10 +1,6 @@
 import swaggerJSDoc from 'swagger-jsdoc';
-/*
-    IMPORTANT:
-    When the documentation for a new api is defined. Modify the description and name of the api.
-    * Example: in 'src/components/health/health.api.ts'
-    * To view the documentation for the tool: https://www.npmjs.com/package/swagger-jsdoc
-*/
+import UsersDocs from '../../components/users/docs';
+import HealthDocs from '../../components/health/docs';
 
 const swaggerOptions: swaggerJSDoc.Options = {
     swaggerDefinition: {
@@ -14,21 +10,26 @@ const swaggerOptions: swaggerJSDoc.Options = {
             description: 'GoGrow SingUp API Documentation',
             version: '1.0',
         },
-        /*servers: [   //Delete comments and configure according to the publication url
+        servers: [   //Delete comments and configure according to the publication url
             {
-                url: '{KARVI_API_TEMPLATE}',
+                url: '{GOGROW_API}',
                 variables: {
-                    KARVI_API_TEMPLATE: {
+                    GOGROW_API: {
                         enum: [
-                            'https://karvi-template-api.development.karvi.com.ar',
-                            'https://karvi-template-api.staging.karvi.com.ar',
+                            'https://gogrow-api.development.com.ar',
+                            'https://gogrow-api.staging.com.ar',
                         ],
+                        default: 'https://gogrow-api.development.com.ar',
                     },
                 },
             },
-        ],*/
+        ],
+        paths: {
+            ...HealthDocs,
+            ...UsersDocs,
+        },
     },
-    apis: ['./src/components/**/*.ts', './src/middlewares/**/*.ts', './src/index.ts'],
+    apis: [],
 };
 
 export default swaggerJSDoc(swaggerOptions);
