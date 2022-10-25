@@ -2,7 +2,7 @@
 FROM node:16.15-alpine3.15 AS deps
 
 EXPOSE 3300
-LABEL maintainerTeam="api-gogrow"
+LABEL maintainerTeam="lt-healt-api"
 WORKDIR /app
 
 COPY --chown=node:node ./package*.json /app/

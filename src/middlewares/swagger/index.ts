@@ -6,7 +6,6 @@ export default (app: Application): void => {
     app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
     app.get('/docs.json', function (req, res) {
         res.setHeader('Content-Type', 'application/json');
-        res.setHeader('Content-disposition', 'attachment; filename=karvi-used-cars-api.json');
         res.send(swaggerDocs);
     });
 };

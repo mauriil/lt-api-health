@@ -1,6 +1,6 @@
-# GoGrow-Challenge - Lahitte Mauricio #
+#  Light-it-Challenge - Lahitte Mauricio #
 
-GoGrow API to support the login form
+ Light-it healt API to support the health care service.
 
 ## Set-Up & Running 🔧 ##
 

@@ -6,20 +6,20 @@ const swaggerOptions: swaggerJSDoc.Options = {
     swaggerDefinition: {
         openApi: '3.0.0',
         info: {
-            title: 'GoGrow SingUp API',
-            description: 'GoGrow SingUp API Documentation',
+            title: 'LT health API',
+            description: 'LT health API Documentation',
             version: '1.0',
         },
         servers: [   //Delete comments and configure according to the publication url
             {
-                url: '{GOGROW_API}',
+                url: '{LThealthAPI}',
                 variables: {
-                    GOGROW_API: {
+                    LThealthAPI: {
                         enum: [
-                            'https://gogrow-api.development.com.ar',
-                            'https://gogrow-api.staging.com.ar',
+                            'https://lt-health-api.development.com.ar',
+                            'https://lt-health-api.staging.com.ar',
                         ],
-                        default: 'https://gogrow-api.development.com.ar',
+                        default: 'https://lt-health-api.development.com.ar',
                     },
                 },
             },
