@@ -3,26 +3,11 @@ import { model, Schema } from "mongoose";
 import { Diagnosis } from "./diagnosis.types";
 
 const diagnosisObject = {  
-  Issue:{  
-     ID: Number,
-     Name: String,
-     ProfName: String,
-     Icd : Number,
-     IcdName : String,
-     Accuracy: Number
+  issue:{  
+     apiMedicId: Number,
+     name: String,
+     accuracy: Number
   },
-  Specialisation: [
-     {  
-        ID: Number,
-        Name: String,
-        SpecialistID: Number
-     },
-     {  
-        ID: Number,
-        Name: String,
-        SpecialistID: Number
-     }
-  ]
 }
 
 const DiagnosisSchema = new Schema<Diagnosis>(

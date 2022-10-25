@@ -7,20 +7,21 @@ export const DiagnosisPostSchema = Joi.object({
         name: Joi.string().required(),
     })).required(),
     diagnosis: Joi.array().items(Joi.object({
-        Issue: Joi.object({
-            ID: Joi.number().required(),
-            Name: Joi.string().required(),
-            ProfName: Joi.string().required(),
-            Icd : Joi.number().required(),
-            IcdName : Joi.string().required(),
-            Accuracy: Joi.number().required(),
+        issue: Joi.object({
+            apiMedicId: Joi.number().required(),
+            name: Joi.string().required(),
+            accuracy: Joi.number().required(),
         }).required(),
-        Specialisation: Joi.array().items(
-            Joi.object({
-                ID: Joi.number().required(),
-                Name: Joi.string().required(),
-                SpecialistID: Joi.number().required(),            
-            }).required()
-        )
     })).required(),
+});
+
+export const DiagnosisPatchSchema = Joi.object({
+    confirmed: Joi.boolean().required(),
+    confirmedDiagnosis: Joi.object({
+        issue: Joi.object({
+            apiMedicId: Joi.number().required(),
+            name: Joi.string().required(),
+            accuracy: Joi.number().required(),
+        }).required(),
+    }).required(),
 });

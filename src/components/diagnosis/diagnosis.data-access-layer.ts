@@ -9,3 +9,17 @@ export const createDiagnosis = async (diagnosisData: Partial<Diagnosis>): Promis
     diagnosis: diagnosisData.diagnosis,
   });
 };
+
+export const getDiagnosisByUserId = async (user: string): Promise<Diagnosis[]> => {
+  return DiagnosisModel.find({user: user});
+};
+
+export const patchDiagnosis = async (diagnosisId: string, diagnosisData: Partial<Diagnosis>): Promise<Diagnosis> => {
+  return DiagnosisModel.findOneAndUpdate({_id: diagnosisId}, {
+    $set: { 
+      confirmed: diagnosisData.confirmed,
+      confirmedDiagnosis: diagnosisData.confirmed ? diagnosisData.confirmedDiagnosis : null
+    },
+  },
+  {new: true});
+};
