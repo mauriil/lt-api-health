@@ -6,6 +6,8 @@ export const createUser = async (user: Partial<User>): Promise<User> => {
   return UserModel.create({
     name: user.name,
     email: user.email,
+    gender: user.gender,
+    birth: user.birth,
     password: user.password,
     verifyToken: user.verifyToken,
   });
