@@ -9,12 +9,14 @@ import {
 import {
   DiagnosisPostSchema,
 } from './diagnosis.validators';
+import { verifyToken } from '../../services/jwt'
 
 const router = Router();
 
 
 router.post(
   '/',
+  verifyToken,
   validateSchema(DiagnosisPostSchema),
   async (req: PostDiagnosisRequest, res, next) => {
     try {
