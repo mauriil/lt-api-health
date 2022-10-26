@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 interface jwtConfig {
     secret: string,
     jwtExpiration: number,

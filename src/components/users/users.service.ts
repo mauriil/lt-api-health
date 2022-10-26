@@ -15,6 +15,7 @@ export const createUser = async (user: Partial<User>): Promise<User> => {
 export const login = async (loginData: Partial<User>): Promise<LoggedUser> => {
   const passwordEnteredByUser = loginData.password || '';
   const user = await dataAccess.loginUser(loginData);
+  console.log("🚀 ~ file: users.service.ts ~ line 18 ~ login ~ user", user)
 
   if (user.verified) {
       if (!user.deleted) {
