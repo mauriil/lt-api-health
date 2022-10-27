@@ -36,4 +36,17 @@ router.get(
   }
 );
 
+router.get(
+  '/issues',
+  verifyToken,
+  async (req, res, next) => {
+    try {
+      const data = await getAllSymptoms();
+      res.status(200).json(data);
+    } catch (err) {
+      next(err);
+    }
+  }
+);
+
 export default router;

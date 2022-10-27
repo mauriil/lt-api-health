@@ -35,3 +35,17 @@ export const getAllDiagnosis = async (queryParams: getDiagnosisRequest) => {
         throw new HttpRequestError('Api medic service error', 422, error);
     }
 };
+
+export const getAllIssues = async () => {
+    try {
+        const apiMedicBearerToken = await getToken();
+        
+        const apiMedicSymptoms = await axios.get(
+            `${process.env.API_MEDIC_BASE_URL}issues?token=${apiMedicBearerToken}&language=en-gb`,
+        );
+
+        return apiMedicSymptoms.data;
+    } catch (error) {
+        throw new HttpRequestError('Api medic service error', 422, error);
+    }
+};
