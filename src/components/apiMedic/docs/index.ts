@@ -1,5 +1,7 @@
-import { getHealthEndpoint } from './apiMedic.api.doc';
+import { getSymptomsEndpoint, getDiagnosisEndpoint, getIssuesEndpoint } from './apiMedic.api.doc';
 
 export default {
-    ...getHealthEndpoint,
+    ...getSymptomsEndpoint,
+    ...getDiagnosisEndpoint,
+    ...getIssuesEndpoint,
 };

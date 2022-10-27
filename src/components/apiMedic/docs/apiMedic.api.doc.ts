@@ -1,17 +1,57 @@
 import { Endpoint } from '../../../common/commons.docs';
 
-export const getHealthEndpoint: Endpoint = {
-    '/health/': {
+export const getSymptomsEndpoint: Endpoint = {
+    '/api-medic/symptoms/': {
         get: {
-            tags: ['Health'],
-            description: 'Health of the MS',
+            tags: ['apiMedic'],
+            description: 'get all symptoms described in apiMedic DB',
             operationId: 'health',
             responses: {
                 200: {
-                    description: 'Success response, the microservice is alive',
+                    description: 'Success response',
                     content: {},
                 },
-                500: {
+                422: {
+                    description: 'Error response, the microservice is down',
+                    content: {},
+                },
+            },
+        },
+    },
+};
+
+export const getDiagnosisEndpoint: Endpoint = {
+    '/api-medic/diagnosis/': {
+        get: {
+            tags: ['apiMedic'],
+            description: 'get all related diagnosis described in apiMedic DB in base of symptoms, gender and dob',
+            operationId: 'health',
+            responses: {
+                200: {
+                    description: 'Success response',
+                    content: {},
+                },
+                422: {
+                    description: 'Error response, the microservice is down',
+                    content: {},
+                },
+            },
+        },
+    },
+};
+
+export const getIssuesEndpoint: Endpoint = {
+    '/api-medic/issues/': {
+        get: {
+            tags: ['apiMedic'],
+            description: 'get all issues described in apiMedic DB',
+            operationId: 'health',
+            responses: {
+                200: {
+                    description: 'Success response',
+                    content: {},
+                },
+                422: {
                     description: 'Error response, the microservice is down',
                     content: {},
                 },
